@@ -1,25 +1,28 @@
 from face_utils import get_face_embedding
 from clustering import FaceCluster
 from alert import send_alert
+import os
 
-# Create system object
+# Initialize system
 face_system = FaceCluster()
 
 # TRAINING PHASE
-known_images = [
-    "data/known/person1.jpg",
-    "data/known/person2.jpg"
-]
+def train_system():
+    known_embeddings = []
+    known_dir = "data/known"
 
-known_embeddings = []
-for img in known_images:
-    emb = get_face_embedding(img)
-    if emb is not None:
-        known_embeddings.append(emb)
+    for img_name in os.listdir(known_dir):
+        img_path = os.path.join(known_dir, img_name)
+        emb = get_face_embedding(img_path)
+        if emb is not None:
+            known_embeddings.append(emb)
 
-face_system.train(known_embeddings)
+    if known_embeddings:
+        face_system.train(known_embeddings)
 
-# 🔥 ADD THIS FUNCTION (DO NOT REMOVE ABOVE CODE)
+train_system()
+
+# 🔥 ADDED FUNCTION (THIS IS THE KEY CHANGE)
 def run_detection(image_path):
     new_face = get_face_embedding(image_path)
 
@@ -32,7 +35,6 @@ def run_detection(image_path):
         send_alert()
         return "Unknown"
 
-# OPTIONAL: for manual testing
+# Optional local test
 if __name__ == "__main__":
-    result = run_detection("data/test/unknown.jpg")
-    print(result)
+    print(run_detection("data/test/test.jpg"))
