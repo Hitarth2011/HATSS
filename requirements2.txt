@@ -1,0 +1,62 @@
+🧠 AI / ML (Models only)
+
+PyTorch – main AI model development & training
+
+TensorFlow – model support, optimization & deployment help
+
+numpy – mathematical operations
+
+pandas – logs, alerts analysis, structured data handling
+
+❌ scikit-learn → removed completely
+
+🖥️ Backend / Server
+
+FastAPI or Flask (recommended: FastAPI)
+
+JWT – secure login sessions
+
+OAuth (optional, future upgrade)
+
+logging – system & security logs
+
+🔔 Alerts & Notifications
+
+smtplib – email alerts
+
+Twilio API – SMS alerts
+
+Firebase Cloud Messaging (FCM) – push notifications
+
+📱 UI / App
+
+Flutter – full mobile app UI
+
+REST APIs – Flutter ↔ backend communication
+
+🗄️ Database
+
+Firebase – users, logs, alerts, real-time updates
+
+👁️ Computer Vision
+
+opencv-python (cv2) – camera input & motion detection
+
+face-recognition – facial recognition
+
+dlib – face embeddings & detection backend
+
+🏠 IoT & Hardware
+
+RPi.GPIO / gpiozero – Raspberry Pi control
+
+pySerial – Arduino ↔ system communication
+
+🌡️ Environmental Safety
+
+Gas sensors
+
+Smoke sensors
+
+Water leak sensors
+(handled via GPIO + Python)
